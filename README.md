@@ -17,7 +17,7 @@ restore a machine.
 
 ### Extensions (`pi/extensions/*.ts`)
 - **strip-pi-docs.ts** — strips the built-in "Pi documentation" block from the system prompt. Adds `/pi-docs on|off` (default OFF) and exports `PI_DOCS_DIR`, `PI_EXAMPLES_DIR`, `PI_README_PATH`.
-- **provider-payload.ts** — logs every provider request/response payload to `<cwd>/.pi/provider-payload.log` for debugging.
+- **payload-inspector.ts** — adds `/payload` to inspect the exact context sent to the model (last request, or pick from a list). Pretty/raw JSON viewer with scroll, search-free pager UI. Captures via `before_provider_request`.
 
 ## Restore to a new machine
 
