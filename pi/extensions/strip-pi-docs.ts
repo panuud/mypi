@@ -26,16 +26,22 @@ import {
 
 const MARKER = "Pi documentation (read only when";
 
-// Header line + the bullet list that follows it. Lazy match stops at the first
-// blank line, the trailing "Current working directory:" line, or end of prompt.
-const DOCS_BLOCK =
+// Current pi renders each system-prompt section wrapped in a matching tag, so
+// the docs block is `<docs>\nPi documentation ...\n</docs>`. Strip the whole
+// tagged section (tags included) when present, otherwise fall back to the older
+// untagged header+bullets form. The lazy match stops at the first blank line,
+// the trailing "Current working directory:" line, or end of prompt.
+const DOCS_BLOCK_TAGGED = /\n*<docs>\nPi documentation \(read only when[\s\S]*?<\/docs>/;
+const DOCS_BLOCK_LEGACY =
 	/\n*Pi documentation \(read only when[\s\S]*?(?=\n\n|\nCurrent working directory:|$)/;
 
 function stripDocsBlock(prompt: string): string {
 	if (!prompt.includes(MARKER)) {
 		return prompt;
 	}
-	const stripped = prompt.replace(DOCS_BLOCK, "");
+	const stripped = prompt
+		.replace(DOCS_BLOCK_TAGGED, "")
+		.replace(DOCS_BLOCK_LEGACY, "");
 	// Collapse any blank-line runs left behind.
 	return stripped.replace(/\n{3,}/g, "\n\n");
 }
