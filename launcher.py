@@ -86,8 +86,6 @@ def parse_session(path: Path) -> dict[str, str | float]:
         pass
     if label:
         label = " ".join(label.split())  # collapse whitespace/newlines
-        if len(label) > LABEL_WIDTH:
-            label = label[:LABEL_WIDTH] + "…"
     return {
         "file": str(path),
         "label": label or "(no prompt yet)",
