@@ -23,7 +23,6 @@ from InquirerPy.prompts.filepath import FilePathPrompt
 from InquirerPy.prompts.fuzzy import FuzzyPrompt
 
 SESSIONS_DIR = Path.home() / ".pi" / "agent" / "sessions"
-LABEL_WIDTH = 60
 SCAN_LINES = 40  # session header + name + first user msg live near the top
 
 
@@ -104,7 +103,7 @@ def fmt_dir(cwd: str, files: list[tuple[float, Path]]) -> str:
 
 def fmt_session(s: dict) -> str:
     ts = time.strftime("%Y-%m-%d %H:%M", time.localtime(s["mtime"]))
-    return f"{ts}  │  {s['label']:<{LABEL_WIDTH}}"
+    return f"{ts}  │  {s['label']}"
 
 
 T = TypeVar("T")
