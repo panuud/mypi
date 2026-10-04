@@ -18,6 +18,9 @@ restore a machine.
 - **strip-pi-docs.ts** — strips the built-in "Pi documentation" block from the system prompt. Adds `/pi-docs on|off` (default OFF) and exports `PI_DOCS_DIR`, `PI_EXAMPLES_DIR`, `PI_README_PATH`.
 - **payload-inspector.ts** — adds `/payload` to inspect the exact context sent to the model (last request, or pick from a list). Pretty/raw JSON viewer with scroll, search-free pager UI. Captures via `before_provider_request`.
 
+### Scripts (repo root)
+- **launcher.py** (`pif`) — fuzzy launcher for pi sessions: pick a working directory (from session history), then resume one of its sessions or start a new one there; `+` entries also allow starting a session in a directory with no history.
+
 ### Unused (`unused/`)
 - **pi-development** — how to work on pi itself (extensions, skills, themes, prompts, SDK/RPC, providers, models, packages, settings). Moved out of `pi/` so it no longer loads.
 
