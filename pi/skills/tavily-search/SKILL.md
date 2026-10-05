@@ -1,7 +1,6 @@
 ---
 name: tavily-search
 description: Web search and web page content extraction via the Tavily API. Use when the user asks to search the web, look up current information, find documentation, check recent news, or read/extract the content of a specific URL or set of URLs.
-disable-model-invocation: true
 ---
 
 # Tavily Search & Extract
