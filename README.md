@@ -17,6 +17,7 @@ restore a machine.
 ### Extensions (`pi/extensions/*.ts`)
 - **strip-pi-docs.ts** — strips the built-in "Pi documentation" block from the system prompt. Adds `/pi-docs on|off` (default OFF) and exports `PI_DOCS_DIR`, `PI_EXAMPLES_DIR`, `PI_README_PATH`.
 - **payload-inspector.ts** — adds `/payload` to inspect the exact context sent to the model (last request, or pick from a list). Pretty/raw JSON viewer with scroll, search-free pager UI. Captures via `before_provider_request`.
+- **subagent.ts** — adds the `subagent` tool to delegate tasks to isolated, inline-configured subagents (single or parallel, max 8 tasks / 4 concurrent). Spawns a separate `pi` process per subagent so each gets its own context window; recursion is blocked in child processes.
 
 ### Scripts (repo root)
 - **launcher.py** (`pif`) — fuzzy launcher for pi sessions: pick a working directory (from session history), then resume one of its sessions or start a new one there; `+` entries also allow starting a session in a directory with no history.
