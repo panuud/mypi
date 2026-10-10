@@ -25,4 +25,5 @@ The config directory is named `pi/` (not `.pi/`) **on purpose**: pi auto-discove
 - Do not add a build system, package manager, or CI unless explicitly asked.
 - Keep assets in the `pi/agent/` mirror layout so they can be copied back to `~/.pi/agent/`.
 - When adding a skill or extension, update `README.md` too.
+- Use conventional-commit prefixes in commit messages: `feat:`, `fix:`, `refactor:`, `docs:`, `chore:`, etc.
 - Treat this as a config/resource repo, not an application.
